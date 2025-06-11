@@ -6,10 +6,10 @@ MY_KEY=<生成したアクセスキー>
 
 if [ $# -ne 1 ]
 then
- $echo "How to use: "
- $echo " okp.sh start   : Start RHOKP with the latest image"
- $echo " okp.sh stop    : Stop RHOKP"
- $echo " okp.sh restart : Restart RHOKP with the latest image"
+ echo "How to use: "
+ echo " okp.sh start   : Start RHOKP with the latest image"
+ echo " okp.sh stop    : Stop RHOKP"
+ echo " okp.sh restart : Restart RHOKP with the latest image"
 exit
 fi
 
