@@ -22,23 +22,23 @@ case "$1" in
     podman pull registry.redhat.io/offline-knowledge-portal/rhokp-rhel9:latest
 
     # start the document container
-    echo "Start RHOKP server" 
+    echo "Start RHOKP server"
     podman run --rm -p 8080:8080 -p 8443:8443 --env "ACCESS_KEY=$MY_KEY" -d registry.redhat.io/offline-knowledge-portal/rhokp-rhel9:latest
     podman ps | grep offline-knowledge-portal
     ;;
 
   stop)
-    # stop RHOKP 
-    RHODP_NAME=`podman ps | grep "registry.redhat.io/offline-knowledge-portal/rhokp-rhel9" |  awk '{print $NF}'`
+    # stop RHOKP
+    RHOKP_NAME=`podman ps | grep "registry.redhat.io/offline-knowledge-portal/rhokp-rhel9" |  awk '{print $NF}'`
     echo "Stopping RHOKP... it takes a while..."
-    podman stop  $RHODP_NAME
+    podman stop  $RHOKP_NAME
     ;;
 
   restart)
     # stop RHOKP
-    RHODP_NAME=`podman ps | grep "registry.redhat.io/offline-knowledge-portal/rhokp-rhel9" |  awk '{print $NF}'`
+    RHOKP_NAME=`podman ps | grep "registry.redhat.io/offline-knowledge-portal/rhokp-rhel9" |  awk '{print $NF}'`
     echo "Stopping RHOKP... it takes a while..."
-    podman stop  $RHODP_NAME
+    podman stop  $RHOKP_NAME
 
     # Check if the image is latest, if not, pull the latest.
     echo "Checking the latest RHOKP image..."
@@ -47,7 +47,7 @@ case "$1" in
     podman pull registry.redhat.io/offline-knowledge-portal/rhokp-rhel9:latest
 
     # start the document container
-    echo "Start RHOKP server" 
+    echo "Start RHOKP server"
     podman run --rm -p 8080:8080 -p 8443:8443 --env "ACCESS_KEY=$MY_KEY" -d registry.redhat.io/offline-knowledge-portal/rhokp-rhel9:latest
     podman ps | grep offline-knowledge-portal
     ;;
@@ -56,5 +56,3 @@ case "$1" in
     exit 1
     ;;
 esac
-
-
